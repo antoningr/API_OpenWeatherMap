@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Données météorologiques de Openweathermap </title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1 style="text-align:center;">Application Web : Les données météorologiques de Openweathermap</h1>
+    <hr>
+    <h2>Recherche des données météorologiques pour une ville du monde</h1>
+    <form method="POST">
+      <label for="city">Ville :</label>
+      <input type="text" name="city" id="city" required>
+      <button type="submit">Rechercher</button>
+    </form>
+    <hr>
+    {% if message %}
+    <h3>{{ message }}</h3>
+    {% endif %}
+    {% block content %}
+    
+    {% endblock %}
+</body>
+</html>

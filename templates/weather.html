@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2>Données météorologiques de Openweathermap pour la ville de {{ data.city }} ({{ data.country }})</h2>
+    <h3 id="datetime"></h3>
+    <script>
+		var dt = new Date();
+		var options = {
+			weekday: 'long',
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric',
+			hour: 'numeric',
+			minute: 'numeric',
+			second: 'numeric',
+			hour12: false
+		};
+		var formattedDate = dt.toLocaleString('fr-FR', options);
+		document.getElementById("datetime").innerHTML = "Données météorologiques du " + formattedDate;
+	</script>
+    <h4>Temps actuel : {{ data.description }}</h4>
+    <h4>Température actuelle : {{ data.temp }} °C</h4>
+    <h4>Température minimale : {{ data.temp_min }} °C</h4>
+    <h4>Température maximale : {{ data.temp_max }} °C</h4>
+    <h4>Pression atmosphérique : {{ data.pressure }} hPa</h4>
+    <h4>Humidité dans l'air : {{ data.humidity }} %</h4>
+    <h4>Vitesse du vent : {{ data.wind_speed }} m/s</h4>
+    <h4>Direction du vent : {{ data.wind_deg }} °</h4>
+    <h4>Visibilité : {{ data.visibility }} m</h4>
+{% endblock %}
